@@ -160,11 +160,29 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Update" id="pN2-CE-Aof"/>
+                        <barButtonItem title="Update" id="pN2-CE-Aof">
+                            <connections>
+                                <action selector="update:" destination="XUa-jn-4Uf" id="Xm0-aH-3vG"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="8PG-6y-inE"/>
-                        <barButtonItem title="Delete" id="TOk-kQ-e0e"/>
+                        <barButtonItem title="Remove" id="TOk-kQ-e0e">
+                            <connections>
+                                <action selector="remove:" destination="XUa-jn-4Uf" id="8EQ-g6-TAL"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="bioField" destination="Mn8-Ci-4D7" id="QcQ-Kd-MZS"/>
+                        <outlet property="createdAtField" destination="TR5-0d-X5o" id="BMw-70-yef"/>
+                        <outlet property="emailField" destination="wVL-3D-d74" id="eld-Iy-wkN"/>
+                        <outlet property="firstNameField" destination="CGu-hw-Myg" id="hrc-LW-KVi"/>
+                        <outlet property="idField" destination="6ai-gq-ZYp" id="VDz-MH-WPR"/>
+                        <outlet property="lastNameField" destination="Q3h-RG-9kG" id="h8S-cM-g6b"/>
+                        <outlet property="phoneField" destination="apt-Dd-dBv" id="fNd-wS-hIZ"/>
+                        <outlet property="updatedAtField" destination="h6r-6I-Fgn" id="bzA-ga-SJu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7aP-lE-UYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

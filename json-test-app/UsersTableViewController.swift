@@ -8,60 +8,46 @@
 
 import UIKit
 
+var users = []
+var currentUserIndex = -1 as Int
+
 class UsersTableViewController: UITableViewController {
-    
-    var users = [""]
     var refresher:UIRefreshControl!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         var request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:3000/users")!)
         var session = NSURLSession.sharedSession()
         request.HTTPMethod = "GET"
-        
-//        var params = ["username":"jameson", "password":"password"] as Dictionary<String, String>
-        
+
         var err: NSError?
-//        request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: &err)
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
+
         var task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            println("Response: \(response)")
-            var strData = NSString(data: data, encoding: NSUTF8StringEncoding)
-            println("Body: \(strData)")
             var err: NSError?
             var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as? NSDictionary
-            
-            // Did the JSONObjectWithData constructor return an error? If so, log the error to the console
-            if(err != nil) {
-                println(err!.localizedDescription)
-                let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
-                println("Error could not parse JSON: '\(jsonStr)'")
+
+            if(error != nil) {
+                println(error)
             }
             else {
-                // The JSONObjectWithData constructor didn't return an error. But, we should still
-                // check and make sure that json has a value using optional binding.
-                if let parseJSON = json {
-                    // Okay, the parsedJSON is here, let's get the value for 'success' out of it
-                    var success = parseJSON["success"] as? Int
-                    println("Succes: \(success)")
-                    println(data)
+                if let json = json {
+                    var success = json["success"] as? Bool
+                    if json["users"] != nil {
+                        users = json["users"] as! NSArray
+                        self.tableView.reloadData()
+                    }
                 }
                 else {
-                    // Woa, okay the json object was nil, something went worng. Maybe the server isn't running?
-                    let jsonStr = NSString(data: data, encoding: NSUTF8StringEncoding)
-                    println("Error could not parse JSON: \(jsonStr)")
+                    println("json was nil")
                 }
             }
         })
-        
+
         task.resume()
-        
-        
-        
-        
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -113,34 +99,43 @@ class UsersTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     // MARK: - Table view data source
-    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
     }
-    
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-//        return users.count
-        return 3
+        return users.count
     }
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("User", forIndexPath: indexPath) as! UITableViewCell
-        
-        cell.textLabel?.text = String(indexPath.row)
-        
+        if let firstName: AnyObject? = users[indexPath.row]["first_name"] {
+            cell.textLabel?.text = (firstName as! String)
+        } else {
+            cell.textLabel?.text = "No name provided"
+        }
         return cell
     }
-    
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        self.performSegueWithIdentifier("ShowUser", sender: tableView)
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 35
+    }
+
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        currentUserIndex = indexPath.row
+        return indexPath
+    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

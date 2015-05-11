@@ -15,6 +15,7 @@
 		54246B581B0028CE00777B18 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54246B571B0028CE00777B18 /* UsersTableViewController.swift */; };
 		54246B5A1B00290800777B18 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54246B591B00290800777B18 /* User.swift */; };
 		54246B5C1B002A1A00777B18 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54246B5B1B002A1A00777B18 /* UserViewController.swift */; };
+		54246B5E1B00451800777B18 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54246B5D1B00451800777B18 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		54246B571B0028CE00777B18 /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		54246B591B00290800777B18 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		54246B5B1B002A1A00777B18 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		54246B5D1B00451800777B18 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				54246B371B0025F700777B18 /* AppDelegate.swift */,
 				54246B591B00290800777B18 /* User.swift */,
 				54246B571B0028CE00777B18 /* UsersTableViewController.swift */,
+				54246B5D1B00451800777B18 /* UserModel.swift */,
 				54246B5B1B002A1A00777B18 /* UserViewController.swift */,
 				54246B3B1B0025F700777B18 /* Main.storyboard */,
 				54246B3E1B0025F700777B18 /* Images.xcassets */,
@@ -221,6 +224,7 @@
 				54246B381B0025F700777B18 /* AppDelegate.swift in Sources */,
 				54246B5C1B002A1A00777B18 /* UserViewController.swift in Sources */,
 				54246B581B0028CE00777B18 /* UsersTableViewController.swift in Sources */,
+				54246B5E1B00451800777B18 /* UserModel.swift in Sources */,
 				54246B5A1B00290800777B18 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
