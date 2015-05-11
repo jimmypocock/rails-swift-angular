@@ -1,11 +1,11 @@
 == README
 
 To set up API:
-  `• git clone <URL>`
-  `• cd json-test-app/json-test-api`
-  `• bundle install`
-  `• rake db:create && rake db:migrate`
-  `• rails s`
+  - `git clone <URL>`
+  - `cd json-test-app/json-test-api`
+  - `bundle install`
+  - `rake db:create && rake db:migrate`
+  - `rails s`
 
 
 
