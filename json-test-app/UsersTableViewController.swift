@@ -8,92 +8,28 @@
 
 import UIKit
 
-var users = []
-var currentUserIndex = -1 as Int
 
 class UsersTableViewController: UITableViewController {
-    var refresher:UIRefreshControl!
+//    var refresher:UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var request = NSMutableURLRequest(URL: NSURL(string: "http://localhost:3000/users")!)
-        var session = NSURLSession.sharedSession()
-        request.HTTPMethod = "GET"
-
-        var err: NSError?
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-
-        var task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
-            var err: NSError?
-            var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &err) as? NSDictionary
-
-            if(error != nil) {
+        var apiURL = NSURL(string: "/users", relativeToURL: API().url!)
+        API.loadDataFromURL(apiURL!, completion: { (data, error) -> Void in
+            if error != nil {
                 println(error)
-            }
-            else {
-                if let json = json {
-                    var success = json["success"] as? Bool
-                    if json["users"] != nil {
-                        users = json["users"] as! NSArray
-                        self.tableView.reloadData()
+            } else {
+                API.parseJSON(data!, completion: { (jsonData, jsonError) -> Void in
+                    if jsonError != nil {
+                        println(jsonError)
+                    } else {
+                        println(jsonData!)
                     }
-                }
-                else {
-                    println("json was nil")
-                }
+                })
             }
         })
-
-        task.resume()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-//        updateUsers()
-        
-//        refresher = UIRefreshControl()
-//        refresher.attributedTitle = NSAttributedString(string: "Refreshing...")
-//        refresher.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
-//        self.tableView.addSubview(refresher)
-        
     }
-    
-//    func updateUsers() {
-//        var query = PFUser.query()
-//        query?.findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
-//            self.users.removeAll(keepCapacity: true)
-//            for object in objects! {
-//                var user:PFUser = object as! PFUser
-//                var isFollowing:Bool
-//                if user.username != PFUser.currentUser()?.username {
-//                    self.users.append(user.username!)
-//                    isFollowing = false
-//                    var query = PFQuery(className: "Follow")
-//                    query.whereKey("follower", equalTo: PFUser.currentUser()!.username!)
-//                    query.whereKey("following", equalTo: user.username!)
-//                    query.findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
-//                        if error == nil {
-//                            for object in objects! {
-//                                isFollowing = true
-//                            }
-//                            self.following.append(isFollowing)
-//                            
-//                            // This should be somewhere else
-//                            self.tableView.reloadData()
-//                        } else {
-//                            println(error)
-//                        }
-//                        self.refresher.endRefreshing()
-//                    })
-//                }
-//            }
-//        })
-//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -114,7 +50,7 @@ class UsersTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("User", forIndexPath: indexPath) as! UITableViewCell
+        let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("UserCell", forIndexPath: indexPath) as! UITableViewCell
         if let firstName: AnyObject? = users[indexPath.row]["first_name"] {
             cell.textLabel?.text = (firstName as! String)
         } else {
@@ -132,7 +68,7 @@ class UsersTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        currentUserIndex = indexPath.row
+//        currentUserIndex = indexPath.row
         return indexPath
     }
 

@@ -8,20 +8,22 @@
 
 import Foundation
 
-class UserModel: NSObject {
-    let firstName: String
-    let lastName: String
-    let bio: String
-    let phone: String
-    let email: String
-    let createdAt: String
-    let updatedAt: String
+class User {
+    
+    var firstName: String
+    var lastName: String
+    var bio: String
+    var phone: String
+    var email: String
+    var createdAt: String
+    var updatedAt: String
 
-    override var description: String {
+    var description: String {
         return "First Name: \(firstName), Last Name: \(lastName), Bio: \(bio), Phone: \(phone), Email: \(email), Created At: \(createdAt), Updated At: \(updatedAt)"
     }
 
-    init(firstName: String?, lastName: String?, bio: String?, phone: String?, email: String?, createdAt: String?, updatedAt: String?) {
+    init?(firstName: String?, lastName: String?, bio: String?, phone: String?, email: String?, createdAt: String?, updatedAt: String?) {
+
         self.firstName = firstName ?? ""
         self.lastName = lastName ?? ""
         self.bio = bio ?? ""
@@ -29,5 +31,7 @@ class UserModel: NSObject {
         self.email = email ?? ""
         self.createdAt = createdAt ?? ""
         self.updatedAt = updatedAt ?? ""
+        return nil
     }
+
 }

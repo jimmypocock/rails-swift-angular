@@ -22,26 +22,30 @@ class UserViewController: UIViewController {
     }
     @IBAction func remove(sender: AnyObject) {
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
-        var model: AnyObject = users[currentUserIndex]
-        var firstName = model["first_name"] as! String
-        var lastName = model["last_name"] as! String
-        var bio = model["bio"] as! String
-        var phone = model["phone"] as! String
-        var email = model["email"] as! String
-        var createdAt = model["created_at"] as! String
-        var updatedAt = model["updated_at"] as! String
-        var user = UserModel(firstName: firstName, lastName: lastName, bio: bio, phone: phone, email: email, createdAt: createdAt, updatedAt: updatedAt);
 
-        firstNameField.text = firstName
-        lastNameField.text = lastName
-        bioField.text = bio
-        phoneField.text = phone
-        emailField.text = email
-        createdAtField.text = createdAt
-        updatedAtField.text = updatedAt
+//        currentUser = User()
+//        var model: AnyObject = users[currentUserIndex]
+//        var firstName = model["first_name"] as! String
+//        var lastName = model["last_name"] as! String
+//        var bio = model["bio"] as! String
+//        var phone = model["phone"] as! String
+//        var email = model["email"] as! String
+//        var createdAt = model["created_at"] as! String
+//        var updatedAt = model["updated_at"] as! String
+//        user = User(firstName: firstName, lastName: lastName, bio: bio, phone: phone, email: email, createdAt: createdAt, updatedAt: updatedAt);
+
+//        firstNameField.text = firstName
+//        lastNameField.text = lastName
+//        bioField.text = bio
+//        phoneField.text = phone
+//        emailField.text = email
+//        createdAtField.text = createdAt
+//        updatedAtField.text = updatedAt
 
     }
     
