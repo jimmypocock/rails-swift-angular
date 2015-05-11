@@ -1,0 +1,125 @@
+source 'https://rubygems.org'
+
+
+gem 'rails'
+gem 'rails-api'
+
+
+
+############
+# DATABASE #
+############
+
+# Use PostgreSQL as the database
+gem 'pg'
+
+# Hirb provides a mini view framework for console applications and uses it to improve ripl(irb)'s default inspect output.
+gem 'hirb'
+
+
+
+##################
+# AUTHENTICATION #
+##################
+
+# Devise is a flexible authentication solution for Rails based on Warden.
+# gem 'devise'
+
+# Adds the ability to assign permissions based on the roles of users.
+# gem 'rolify'
+
+# Use ActiveModel has_secure_password
+# gem 'bcrypt', '~> 3.1.7'
+
+# Doorkeeper is a gem that makes it easy to introduce OAuth 2 provider functionality to your Rails application.
+# gem 'doorkeeper'
+
+
+
+#####################
+# HELPERS / METHODS #
+#####################
+
+# Disables the security feature of strong_params at the model layer, allowing you the use of Grape's own params validation instead.
+# gem 'hashie-forbidden_attributes'
+
+
+
+#####################
+# API / REST / DATA #
+#####################
+
+# Grape is a REST-like API micro-framework for Ruby.
+# gem 'grape'
+
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 2.0'
+
+# Simple HTTP and REST client for Ruby, inspired by microframework syntax for specifying actions.
+gem 'rest-client'
+
+# Mechanize automatically stores and sends cookies, follows redirects, and can follow links and submit forms.
+# gem 'mechanize'
+
+# Rack::Cors provides support for Cross-Origin Resource Sharing (CORS) for Rack compatible web applications.
+gem 'rack-cors', :require => 'rack/cors'
+
+# A set of responders modules to dry up your Rails 4.2+ app.
+gem 'responders', '~> 2.0'
+
+################
+# SERVER BASED #
+################
+
+# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+gem 'spring',        group: :development
+
+# Disallows assets to show in logs
+# gem 'quiet_assets'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Use Capistrano for deployment
+# gem 'capistrano-rails', group: :development
+
+
+###########
+# TESTING #
+###########
+
+# Use debugger
+# gem 'debugger', group: [:development, :test]
+
+# Unit test framework
+# gem "rspec-rails", :group => [:development, :test]
+
+# For cleaning database during unit tests
+# gem "database_cleaner", :group => :test
+
+# Behaviour driven development
+# gem "cucumber-rails", :group => :test, :require => false
+
+# Factory for DB data
+# gem "factory_girl_rails", :group => [:development, :test]
+
+# Collection of Rails testing matchers
+# gem "shoulda-matchers", :group => :test
+
+# Cucumber steps for API
+# gem 'cucumber-api-steps', :require => false, :group => :test
+
+# JSON matchers for tests
+# gem 'json_spec', group: :test
+
+
+
+########
+# DOCS #
+########
+
+# bundle exec rake doc:rails generates the API under doc/api.
+# gem 'sdoc', '~> 0.4.0',          group: :doc
+
+# Generate pretty API docs for your Rails APIs
+# gem 'rspec_api_documentation', group: :doc
