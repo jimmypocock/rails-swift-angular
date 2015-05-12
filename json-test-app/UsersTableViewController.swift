@@ -8,9 +8,9 @@
 
 import UIKit
 
+var users = []
 
 class UsersTableViewController: UITableViewController {
-//    var refresher:UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,8 @@ class UsersTableViewController: UITableViewController {
                     if jsonError != nil {
                         println(jsonError)
                     } else {
-                        println(jsonData!)
+                        users = jsonData!["users"] as! NSArray
+                        self.tableView.reloadData()
                     }
                 })
             }

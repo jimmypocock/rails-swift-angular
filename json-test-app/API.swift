@@ -8,7 +8,6 @@
 
 import Foundation
 
-var users = []
 var currentUser = User(firstName: nil, lastName: nil, bio: nil, phone: nil, email: nil, createdAt: nil, updatedAt: nil)
 
 class API {
