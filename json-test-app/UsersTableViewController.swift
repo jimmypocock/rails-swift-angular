@@ -12,8 +12,18 @@ var users = []
 
 class UsersTableViewController: UITableViewController {
 
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
+        activityIndicator.center = self.tableView.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
 
         var apiURL = NSURL(string: "/users", relativeToURL: API().url!)
         API.loadDataFromURL(apiURL!, completion: { (data, error) -> Void in
@@ -26,6 +36,9 @@ class UsersTableViewController: UITableViewController {
                     } else {
                         users = jsonData!["users"] as! NSArray
                         self.tableView.reloadData()
+
+                        self.activityIndicator.stopAnimating()
+                        UIApplication.sharedApplication().endIgnoringInteractionEvents()
                     }
                 })
             }
