@@ -8,8 +8,6 @@
 
 import Foundation
 
-var currentUser = User(firstName: nil, lastName: nil, bio: nil, phone: nil, email: nil, createdAt: nil, updatedAt: nil)
-
 class API {
 
     let url = NSURL(string: "http://localhost:3000")

@@ -9,6 +9,7 @@
 import UIKit
 
 var users = []
+var selectedUserId = -1 as NSNumber
 
 class UsersTableViewController: UITableViewController {
 
@@ -82,7 +83,8 @@ class UsersTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-//        currentUserIndex = indexPath.row
+        var selected = users[indexPath.row] as! NSDictionary
+        selectedUserId = selected["id"] as! NSNumber
         return indexPath
     }
 

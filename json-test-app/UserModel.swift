@@ -10,6 +10,7 @@ import Foundation
 
 class User {
     
+    var id: NSNumber
     var firstName: String
     var lastName: String
     var bio: String
@@ -22,8 +23,10 @@ class User {
         return "First Name: \(firstName), Last Name: \(lastName), Bio: \(bio), Phone: \(phone), Email: \(email), Created At: \(createdAt), Updated At: \(updatedAt)"
     }
 
-    init?(firstName: String?, lastName: String?, bio: String?, phone: String?, email: String?, createdAt: String?, updatedAt: String?) {
+    init?(id: NSNumber?, firstName: String?, lastName: String?, bio: String?, phone: String?, email: String?, createdAt: String?, updatedAt: String?) {
+        var nsNum = -1 as NSNumber
 
+        self.id = id ?? nsNum
         self.firstName = firstName ?? ""
         self.lastName = lastName ?? ""
         self.bio = bio ?? ""
@@ -31,7 +34,6 @@ class User {
         self.email = email ?? ""
         self.createdAt = createdAt ?? ""
         self.updatedAt = updatedAt ?? ""
-        return nil
     }
 
 }
