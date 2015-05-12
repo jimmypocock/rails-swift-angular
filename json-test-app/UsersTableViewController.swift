@@ -29,10 +29,12 @@ class UsersTableViewController: UITableViewController {
         var apiURL = NSURL(string: "/users", relativeToURL: API().url!)
         API.loadDataFromURL(apiURL!, completion: { (data, error) -> Void in
             if error != nil {
+                println("user index load data error")
                 println(error)
             } else {
                 API.parseJSON(data!, completion: { (jsonData, jsonError) -> Void in
                     if jsonError != nil {
+                        println("user index parse json error")
                         println(jsonError)
                     } else {
                         users = jsonData!["users"] as! NSArray

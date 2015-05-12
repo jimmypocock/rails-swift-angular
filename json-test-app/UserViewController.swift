@@ -52,10 +52,12 @@ class UserViewController: UIViewController {
         var apiURL = NSURL(string: "/users/\(selectedUserId)", relativeToURL: API().url!)
         API.loadDataFromURL(apiURL!, completion: { (data, error) -> Void in
             if error != nil {
+                println("user show load data error")
                 println(error)
             } else {
                 API.parseJSON(data!, completion: { (jsonData, jsonError) -> Void in
                     if jsonError != nil {
+                        println("user show parse json error")
                         println(jsonError)
                     } else {
                         var user = jsonData!["user"] as! NSDictionary
