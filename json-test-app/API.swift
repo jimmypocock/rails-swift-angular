@@ -52,8 +52,6 @@ class API {
             if error != nil {
                 completion(data: nil, error: error)
             } else {
-                println("Post Data")
-                println(data)
                 completion(data: data, error: error)
             }
         }
@@ -64,8 +62,6 @@ class API {
             if error != nil {
                 completion(data: nil, error: error)
             } else {
-                println("Post Data")
-                println(data)
                 completion(data: data, error: error)
             }
         }

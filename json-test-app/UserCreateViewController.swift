@@ -36,13 +36,11 @@ class UserCreateViewController: UIViewController {
                         println("user update parse json error")
                         println(jsonError)
                     } else {
-                        println("json data")
-                        println(jsonData)
-
                         var user = jsonData!["user"] as! NSDictionary
                         selectedUserId = user["id"] as! NSNumber
-                        println("successfully created")
-                        self.performSegueWithIdentifier("UserCreated", sender: self)
+                        NSOperationQueue.mainQueue().addOperationWithBlock {
+                            self.performSegueWithIdentifier("UserCreated", sender: self)
+                        }
                     }
                 })
             }
