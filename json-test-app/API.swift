@@ -71,6 +71,16 @@ class API {
         }
     }
 
+    class func DELETE(url: NSURL, completion:(data: NSData?, error: NSError?) -> Void) {
+        API.loadDataFromURL(url, method: "DELETE", params: nil) { (data, error) -> Void in
+            if error != nil {
+                completion(data: nil, error: error)
+            } else {
+                completion(data: data, error: error)
+            }
+        }
+    }
+
     class func parseJSON(data: NSData, completion:(response: NSDictionary?, error: NSError?) -> Void) {
         var error: NSError?
         var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error: &error) as? NSDictionary

@@ -35,12 +35,12 @@ class UserViewController: UIViewController {
         var apiURL = NSURL(string: "/users/\(selectedUserId)", relativeToURL: API().url!)
         API.PUT(apiURL!, params: params, completion: { (data, error) -> Void in
             if error != nil {
-                println("user show load data error")
+                println("user update load data error")
                 println(error)
             } else {
                 API.parseJSON(data!, completion: { (jsonData, jsonError) -> Void in
                     if jsonError != nil {
-                        println("user show parse json error")
+                        println("user update parse json error")
                         println(jsonError)
                     } else {
                         println("json data")
@@ -68,8 +68,18 @@ class UserViewController: UIViewController {
         })
     }
     @IBAction func remove(sender: AnyObject) {
+        var apiURL = NSURL(string: "/users/\(selectedUserId)", relativeToURL: API().url!)
+        API.DELETE(apiURL!, completion: { (data, error) -> Void in
+            if error != nil {
+                println("user remove load data error")
+                println(error)
+            } else {
+                println("successful delete")
+                self.performSegueWithIdentifier("UserDelete", sender: self)
+            }
+        })
     }
-    
+
     func refreshTextFields() {
         idField.text = selectedUser!.id.stringValue
         firstNameField.text = selectedUser!.firstName

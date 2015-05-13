@@ -198,6 +198,7 @@
                         <outlet property="lastNameField" destination="Q3h-RG-9kG" id="h8S-cM-g6b"/>
                         <outlet property="phoneField" destination="apt-Dd-dBv" id="fNd-wS-hIZ"/>
                         <outlet property="updatedAtField" destination="1kN-hj-FnW" id="OjZ-FQ-vuP"/>
+                        <segue destination="lre-PJ-iMN" kind="show" identifier="UserDelete" id="lc5-0T-kq4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7aP-lE-UYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -205,4 +206,7 @@
             <point key="canvasLocation" x="896.5" y="341.5"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="lc5-0T-kq4"/>
+    </inferredMetricsTieBreakers>
 </document>
