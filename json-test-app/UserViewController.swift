@@ -25,8 +25,11 @@ class UserViewController: UIViewController {
     @IBAction func update(sender: AnyObject) {
         var params = [
             "user": [
-                "first_name":"bobby",
-                "last_name":"jenkins"
+                "first_name":firstNameField.text,
+                "last_name":lastNameField.text,
+                "bio":bioField.text,
+                "phone":phoneField.text,
+                "email":emailField.text,
             ]
         ] as NSDictionary
         var apiURL = NSURL(string: "/users/\(selectedUserId)", relativeToURL: API().url!)
