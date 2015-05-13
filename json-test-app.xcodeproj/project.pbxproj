@@ -16,6 +16,7 @@
 		54246B5C1B002A1A00777B18 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54246B5B1B002A1A00777B18 /* UserViewController.swift */; };
 		54246B5E1B00451800777B18 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54246B5D1B00451800777B18 /* UserModel.swift */; };
 		54246B601B00544B00777B18 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54246B5F1B00544B00777B18 /* API.swift */; };
+		54568E2C1B031206008CEE62 /* UserCreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54568E2B1B031206008CEE62 /* UserCreateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		54246B5B1B002A1A00777B18 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		54246B5D1B00451800777B18 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		54246B5F1B00544B00777B18 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		54568E2B1B031206008CEE62 /* UserCreateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCreateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				54246B5B1B002A1A00777B18 /* UserViewController.swift */,
 				54246B571B0028CE00777B18 /* UsersTableViewController.swift */,
 				54246B3B1B0025F700777B18 /* Main.storyboard */,
+				54568E2B1B031206008CEE62 /* UserCreateViewController.swift */,
 				54246B3E1B0025F700777B18 /* Images.xcassets */,
 				54246B401B0025F700777B18 /* LaunchScreen.xib */,
 				54246B351B0025F700777B18 /* Supporting Files */,
@@ -226,6 +229,7 @@
 				54246B581B0028CE00777B18 /* UsersTableViewController.swift in Sources */,
 				54246B5E1B00451800777B18 /* UserModel.swift in Sources */,
 				54246B601B00544B00777B18 /* API.swift in Sources */,
+				54568E2C1B031206008CEE62 /* UserCreateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

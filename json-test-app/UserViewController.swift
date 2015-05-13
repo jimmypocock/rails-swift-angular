@@ -75,7 +75,7 @@ class UserViewController: UIViewController {
                 println(error)
             } else {
                 println("successful delete")
-                self.performSegueWithIdentifier("UserDelete", sender: self)
+                self.performSegueWithIdentifier("UserDeleted", sender: self)
             }
         })
     }

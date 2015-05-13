@@ -21,7 +21,8 @@ class UsersController < ApplicationController
 
   #POST /users
   def create
-    if(user = User.new(user_params).save!)
+    user = User.new(user_params)
+    if(user.save!)
       render :json => {success: true, user: user}
     else
       render :json => {success: false}
