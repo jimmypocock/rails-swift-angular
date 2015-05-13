@@ -27,7 +27,7 @@ class UsersTableViewController: UITableViewController {
         UIApplication.sharedApplication().beginIgnoringInteractionEvents()
 
         var apiURL = NSURL(string: "/users", relativeToURL: API().url!)
-        API.loadDataFromURL(apiURL!, completion: { (data, error) -> Void in
+        API.GET(apiURL!, completion: { (data, error) -> Void in
             if error != nil {
                 println("user index load data error")
                 println(error)

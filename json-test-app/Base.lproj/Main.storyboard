@@ -12,6 +12,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="3NU-4x-Ffz">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Users" id="yIu-Dj-J7K">
+                                    <barButtonItem key="leftBarButtonItem" systemItem="add" id="hfv-br-hQZ"/>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" id="ilO-pm-FcQ">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -36,7 +45,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zjj-ge-nL1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="460.5" y="341.5"/>
+            <point key="canvasLocation" x="461.5" y="341.5"/>
         </scene>
         <!--User View Controller-->
         <scene sceneID="42p-Rw-MHu">

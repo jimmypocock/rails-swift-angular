@@ -23,6 +23,46 @@ class UserViewController: UIViewController {
     @IBOutlet var createdAtField: UILabel!
     @IBOutlet var updatedAtField: UILabel!
     @IBAction func update(sender: AnyObject) {
+        var params = [
+            "user": [
+                "first_name":"bobby",
+                "last_name":"jenkins"
+            ]
+        ] as NSDictionary
+        var apiURL = NSURL(string: "/users/\(selectedUserId)", relativeToURL: API().url!)
+        API.PUT(apiURL!, params: params, completion: { (data, error) -> Void in
+            if error != nil {
+                println("user show load data error")
+                println(error)
+            } else {
+                API.parseJSON(data!, completion: { (jsonData, jsonError) -> Void in
+                    if jsonError != nil {
+                        println("user show parse json error")
+                        println(jsonError)
+                    } else {
+                        println("json data")
+                        println(jsonData)
+
+                        var user = jsonData!["user"] as! NSDictionary
+                        selectedUser = User(
+                            id: user["id"] as? NSNumber,
+                            firstName: user["first_name"] as? String,
+                            lastName: user["last_name"] as? String,
+                            bio: user["bio"] as? String,
+                            phone: user["phone"] as? String,
+                            email: user["email"] as? String,
+                            createdAt: user["created_at"] as? String,
+                            updatedAt: user["updated_at"] as? String
+                        )
+
+                        self.refreshTextFields()
+
+                        self.activityIndicator.stopAnimating()
+                        UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                    }
+                })
+            }
+        })
     }
     @IBAction func remove(sender: AnyObject) {
     }
@@ -50,7 +90,7 @@ class UserViewController: UIViewController {
         UIApplication.sharedApplication().beginIgnoringInteractionEvents()
 
         var apiURL = NSURL(string: "/users/\(selectedUserId)", relativeToURL: API().url!)
-        API.loadDataFromURL(apiURL!, completion: { (data, error) -> Void in
+        API.GET(apiURL!, completion: { (data, error) -> Void in
             if error != nil {
                 println("user show load data error")
                 println(error)
