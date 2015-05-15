@@ -8,10 +8,10 @@ angular.module([
   ['$stateProvider', '$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider) {
       $stateProvider
-        .state('home', {
+        .state('usersIndex', {
           url: '/',
-          templateUrl: 'home/home.html',
-          controller: 'HomeCtrl'
+          templateUrl: 'users/index/users.index.html',
+          controller: 'UsersIndexCtrl'
         });
     }
   ]
