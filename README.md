@@ -5,6 +5,7 @@
   - xCode 6+
   - PostgreSQL
   - Ruby 1.9+
+  - Yeoman & angular-generator
 
 
 ### To set up API:

@@ -75,7 +75,9 @@ class UserViewController: UIViewController {
                 println(error)
             } else {
                 println("successful delete")
-                self.performSegueWithIdentifier("UserDeleted", sender: self)
+                NSOperationQueue.mainQueue().addOperationWithBlock {
+                    self.performSegueWithIdentifier("UserDeleted", sender: self)
+                }
             }
         })
     }
