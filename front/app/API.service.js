@@ -8,7 +8,7 @@ angular.module('jsonTestFrontApp')
 
       return {
 
-        index: function(path, callback){
+        get: function(path, callback){
           var cb = callback || angular.noop;
           var deferred = $q.defer();
           var url = host + path;
@@ -46,26 +46,6 @@ angular.module('jsonTestFrontApp')
 
           return deferred.promise;
 
-        },
-
-
-        show: function(path, callback){
-          var cb = callback || angular.noop;
-          var deferred = $q.defer();
-          var url = host + path;
-          var that = this;
-
-          $http.get(url)
-            .success(function(data){
-              deferred.resolve(data);
-              return cb();
-            })
-            .error(function(err) {
-              deferred.reject(err);
-              return cb(err);
-            }.bind(this));
-
-          return deferred.promise;
         },
 
         update: function(path, input, callback){

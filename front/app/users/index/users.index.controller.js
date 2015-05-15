@@ -5,12 +5,12 @@ angular.module('jsonTestFrontApp')
     function ($scope, Users) {
       $scope.users;
 
-      Users.index('/users')
+      Users.get('/users')
       .then(function(resolve){
         $scope.users = resolve["users"];
       })
       .catch(function(err){
         // return cb(err);
-      });;
+      });
     }
   ]);
