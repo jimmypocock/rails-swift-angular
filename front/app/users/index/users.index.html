@@ -1,5 +1,8 @@
 <h1>Users Index</h1>
 
 <div>
-  <a ng-repeat="user in users" ui-sref="usersShow({id: user.id})">{{ user.name }}</a>
+  <a ng-repeat="user in users" ui-sref="usersShow({id: user.id})">
+    {{ user.first_name }} {{ user.last_name }}
+  </a>
+
 </div>
