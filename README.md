@@ -45,8 +45,8 @@ edit_user   GET    /users/:id/edit(.:format) users#edit
 ```
 
 
-
-### GET `/users`
+### Index: Get All Users
+## GET `/users`
 ```
 curl -s -H "Accept: application/json"  \
         -H "Content-Type: application/json"  \
@@ -55,7 +55,8 @@ curl -s -H "Accept: application/json"  \
 ```
 
 
-### GET `/users/:id`
+### Show: Get One User
+## GET `/users/:id`
 ```
 curl -s -H "Accept: application/json"  \
         -H "Content-Type: application/json"  \
@@ -64,7 +65,8 @@ curl -s -H "Accept: application/json"  \
 ```
 
 
-### POST `/users`
+### Create: Add a New User
+## POST `/users`
 ```
 curl -s -H "Accept: application/json"  \
         -H "Content-Type: application/json"  \
@@ -74,7 +76,8 @@ curl -s -H "Accept: application/json"  \
 ```
 
 
-### PUT `/users/:id`
+### Update: Edit User Info
+## PUT `/users/:id`
 ```
 curl -s -H "Accept: application/json"  \
         -H "Content-Type: application/json"  \
@@ -84,7 +87,8 @@ curl -s -H "Accept: application/json"  \
 ```
 
 
-### DELETE `/users`
+### Delete: Remove User
+## DELETE `/users`
 ```
 curl -s -H "Accept: application/json"  \
         -H "Content-Type: application/json"  \
