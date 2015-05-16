@@ -1,7 +1,9 @@
+<h2>User Edit</h2>
 <a ui-sref="usersIndex">Go to Index Page</a>
 
 <form ng-submit="createUser()">
-  <h3>Create a user</h3>
+  <h3>Edit User</h3>
+  <p>ID: {{ user.id }}</p>
   <label for="firstName">First Name:</label>
   <input type="text" name="firstName" ng-model="user.first_name">
   <label for="lastName">Last Name:</label>
@@ -12,5 +14,8 @@
   <input type="text" name="phone" ng-model="user.phone">
   <label for="email">Email:</label>
   <input type="text" name="email" ng-model="user.email">
-  <input type="submit" value="Create This User">
+  <p>Created At: {{ user.created_at }}</p>
+  <p>Updated At: {{ user.updated_at }}</p>
+  <input type="submit" value="Update This User">
 </form>
+<div><a ng-click="deleteUser()">Delete</a></div>

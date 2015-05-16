@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('jsonTestFrontApp')
-  .controller('UsersShowCtrl', ['$scope', '$stateParams', 'API',
+  .controller('UsersEditCtrl', ['$scope', '$stateParams', 'API',
     function ($scope, $stateParams, API) {
       $scope.user;
 

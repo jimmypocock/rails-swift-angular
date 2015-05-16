@@ -8,10 +8,10 @@ angular.module([
   ['$stateProvider', '$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider) {
       $stateProvider
-        .state('usersShow', {
+        .state('usersEdit', {
           url: '/:id',
-          templateUrl: 'users/show/users.show.html',
-          controller: 'UsersShowCtrl'
+          templateUrl: 'users/edit/users.edit.html',
+          controller: 'UsersEditCtrl'
         });
     }
   ]

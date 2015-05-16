@@ -3,12 +3,12 @@
 angular.module('jsonTestFrontApp')
   .controller('UsersNewCtrl', ['$scope', '$state', 'API',
     function ($scope, $state, API) {
-      $scope.brandNew = {
-        user: {}
-      };
+      $scope.user = {};
 
       $scope.createUser = function(){
-        API.post('/users', $scope.brandNew)
+        API.post('/users', {
+          "user": $scope.user
+        })
         .then(function(resolve){
           $state.go('usersIndex');
         })
