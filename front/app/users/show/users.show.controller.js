@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('jsonTestFrontApp')
-  .controller('UsersShowCtrl', ['$scope', '$stateParams', 'Users',
-    function ($scope, $stateParams, Users) {
+  .controller('UsersShowCtrl', ['$scope', '$stateParams', 'API',
+    function ($scope, $stateParams, API) {
       $scope.user;
 
-      Users.get('/users/' + $stateParams.id)
+      API.get('/users/' + $stateParams.id)
       .then(function(resolve){
         $scope.user = resolve["user"];
       })

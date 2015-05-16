@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('jsonTestFrontApp')
-  .factory('Users', ['$http', '$q',
+  .factory('API', ['$http', '$q',
     function ($http, $q) {
 
       var host = 'http://localhost:3000'
@@ -28,7 +28,7 @@ angular.module('jsonTestFrontApp')
 
         },
 
-        create: function(path, input, callback){
+        post: function(path, input, callback){
           var cb = callback || angular.noop;
           var deferred = $q.defer();
           var url = host + path;
@@ -48,7 +48,7 @@ angular.module('jsonTestFrontApp')
 
         },
 
-        update: function(path, input, callback){
+        put: function(path, input, callback){
           var cb = callback || angular.noop;
           var deferred = $q.defer();
           var url = host + path;

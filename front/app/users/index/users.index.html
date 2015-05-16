@@ -1,8 +1,8 @@
 <h1>Users Index</h1>
+<a ui-sref="usersNew">Create a new user</a>
 
 <div>
   <div ng-repeat="user in users">
     <a ui-sref="usersShow({id: user.id})">{{ user.first_name }} {{ user.last_name }}</a>
   </div>
-
 </div>
