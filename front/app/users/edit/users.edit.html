@@ -1,7 +1,7 @@
 <h2>User Edit</h2>
 <a ui-sref="usersIndex">Go to Index Page</a>
 
-<form ng-submit="createUser()">
+<form ng-submit="updateUser()">
   <h3>Edit User</h3>
   <p>ID: {{ user.id }}</p>
   <label for="firstName">First Name:</label>
@@ -18,4 +18,6 @@
   <p>Updated At: {{ user.updated_at }}</p>
   <input type="submit" value="Update This User">
 </form>
+<p ng-if="success === true">{{ messages.success }}</p>
+<p ng-if="success === false">{{ messages.error }}</p>
 <div><a ng-click="deleteUser()">Delete</a></div>
